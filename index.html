@@ -57,6 +57,7 @@
     <div class="right">
       <button id="exportBtn" data-i18n="export">Exporter</button>
       <button id="importBtn" data-i18n="import">Importer</button>
+      <button id="installAppBtn" type="button" hidden>Installer l’application</button>
       <input id="importFile" type="file" accept="application/json" hidden>
     </div>
   </div>
@@ -122,12 +123,12 @@
 <div class="modal-overlay" id="addAdversaryModal" hidden>
   <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="addAdversaryModalTitle">
     <div class="modal-head">
-      <strong id="addAdversaryModalTitle" data-i18n="addEnemyTitle">Ajouter un adversaire</strong>
+      <strong id="addAdversaryModalTitle">Ajouter un adversaire</strong>
       <button class="modal-close" id="closeAddAdversaryModal" type="button" title="Fermer" aria-label="Fermer">×</button>
     </div>
-    <button id="newCombatAdversary" type="button" data-i18n="newEnemy">+ Nouvel adversaire</button>
+    <button id="newCombatAdversary" type="button">+ Nouvel adversaire</button>
     <div class="modal-toolbar">
-      <input id="addAdversarySearch" type="search" placeholder="Rechercher dans la base de données" data-i18n-placeholder="searchDatabase">
+      <input id="addAdversarySearch" type="search" placeholder="Rechercher dans la base de données">
     </div>
     <div id="addAdversaryList" class="library-list"></div>
   </div>
@@ -136,13 +137,13 @@
 <div class="modal-overlay" id="databaseModal" hidden>
   <div class="modal-panel large" role="dialog" aria-modal="true" aria-labelledby="databaseModalTitle">
     <div class="modal-head">
-      <strong id="databaseModalTitle" data-i18n="databaseTitle">Base de données des adversaires</strong>
+      <strong id="databaseModalTitle">Base de données des adversaires</strong>
       <button class="modal-close" id="closeDatabaseModal" type="button" title="Fermer" aria-label="Fermer">×</button>
     </div>
-    <div class="database-note" data-i18n="databaseNote">Les modifications faites ici n’ajoutent rien à la page de jeu. Les adversaires déjà présents dans la partie conservent leurs HP, leur stress et leurs états actuels.</div>
+    <div class="database-note">Les modifications faites ici n’ajoutent rien à la page de jeu. Les adversaires déjà présents dans la partie conservent leurs HP, leur stress et leurs états actuels.</div>
     <div class="modal-toolbar">
-      <button id="newLibraryAdversary" type="button" data-i18n="createInDatabase">+ Créer dans la base</button>
-      <input id="databaseSearch" type="search" placeholder="Rechercher un adversaire" data-i18n-placeholder="searchEnemy">
+      <button id="newLibraryAdversary" type="button">+ Créer dans la base</button>
+      <input id="databaseSearch" type="search" placeholder="Rechercher un adversaire">
     </div>
     <div id="databaseList" class="library-list"></div>
   </div>
@@ -151,25 +152,25 @@
 <div class="modal-overlay" id="libraryEditorModal" hidden>
   <form class="modal-panel" id="libraryEditorForm" role="dialog" aria-modal="true" aria-labelledby="libraryEditorTitle">
     <div class="modal-head">
-      <strong id="libraryEditorTitle" data-i18n="databaseEnemy">Adversaire de la base</strong>
+      <strong id="libraryEditorTitle">Adversaire de la base</strong>
       <button class="modal-close" id="closeLibraryEditor" type="button" title="Fermer" aria-label="Fermer">×</button>
     </div>
     <div class="library-editor-grid">
-      <label class="wide"><span data-i18n="name">Nom</span><input name="name" required placeholder="Nom de l’adversaire"></label>
-      <label><span data-i18n="difficulty">Difficulté</span><input name="difficulty" type="number" min="0"></label>
-      <label><span data-i18n="attackModifier">Modificateur d’attaque</span><input name="attackMod" type="number"></label>
-      <label><span data-i18n="majorThreshold">Seuil majeur</span><input name="major" type="number" min="0"></label>
-      <label><span data-i18n="severeThreshold">Seuil sévère</span><input name="severe" type="number" min="0"></label>
-      <label><span data-i18n="hpMax">HP max</span><input name="hpMax" type="number" min="0"></label>
-      <label><span data-i18n="stressMax">Stress max</span><input name="stressMax" type="number" min="0"></label>
-      <label><span data-i18n="diceCount">Nombre de dés</span><input name="damageCount" type="number" min="1"></label>
-      <label><span data-i18n="diceSides">Faces des dés</span><input name="damageSides" type="number" min="2"></label>
-      <label><span data-i18n="damageModifier">Modificateur de dégâts</span><input name="damageMod" type="number"></label>
-      <label><span data-i18n="advDisadv">Avantage / désavantage</span><input name="advantage" type="number" min="-10" max="10"></label>
+      <label class="wide">Nom<input name="name" required placeholder="Nom de l’adversaire"></label>
+      <label>Difficulté<input name="difficulty" type="number" min="0"></label>
+      <label>Modificateur d’attaque<input name="attackMod" type="number"></label>
+      <label>Seuil majeur<input name="major" type="number" min="0"></label>
+      <label>Seuil sévère<input name="severe" type="number" min="0"></label>
+      <label>HP max<input name="hpMax" type="number" min="0"></label>
+      <label>Stress max<input name="stressMax" type="number" min="0"></label>
+      <label>Nombre de dés<input name="damageCount" type="number" min="1"></label>
+      <label>Faces des dés<input name="damageSides" type="number" min="2"></label>
+      <label>Modificateur de dégâts<input name="damageMod" type="number"></label>
+      <label>Avantage / désavantage<input name="advantage" type="number" min="-10" max="10"></label>
     </div>
     <div class="library-editor-actions">
-      <button id="cancelLibraryEditor" type="button" data-i18n="cancel">Annuler</button>
-      <button type="submit" data-i18n="saveDatabase">Enregistrer dans la base</button>
+      <button id="cancelLibraryEditor" type="button">Annuler</button>
+      <button type="submit">Enregistrer dans la base</button>
     </div>
   </form>
 </div>
@@ -177,18 +178,18 @@
 <div class="rest-modal" id="longRestModal" hidden>
   <div class="rest-modal-panel" role="dialog" aria-modal="true" aria-labelledby="longRestModalTitle">
     <div class="rest-modal-head">
-      <strong id="longRestModalTitle" data-i18n="longRestTitle">Repos long</strong>
+      <strong id="longRestModalTitle">Repos long</strong>
       <button id="closeLongRestModal" type="button" title="Fermer" aria-label="Fermer">×</button>
     </div>
-    <div class="small-note" data-i18n="registeredPlayers">PJ enregistrés et évasion :</div>
+    <div class="small-note">PJ enregistrés et évasion :</div>
     <div id="longRestPlayerList" class="long-rest-player-list"></div>
-    <label><span data-i18n="playerCount">Nombre de PJ</span>
+    <label>Nombre de PJ
       <input id="longRestPlayerCount" type="number" min="0" step="1">
     </label>
     <div id="longRestError" class="long-rest-error"></div>
     <div class="long-rest-actions">
-      <button id="cancelLongRest" type="button" data-i18n="cancel">Annuler</button>
-      <button id="confirmLongRest" type="button" data-i18n="confirm">Confirmer</button>
+      <button id="cancelLongRest" type="button">Annuler</button>
+      <button id="confirmLongRest" type="button">Confirmer</button>
     </div>
   </div>
 </div>
@@ -201,12 +202,12 @@
     </div>
     <div class="dock-targets" id="dockTargets"></div>
     <div class="dock-actions">
-      <button id="dockAttackNoTarget" data-i18n="attackNoTarget">Attaque sans cible</button>
-      <button id="dockRollDamage" data-i18n="rollDamage">Lancer les dégâts</button>
-      <input id="dockDamageTaken" type="number" min="0" placeholder="Dégâts subis" data-i18n-placeholder="incomingDamage">
-      <button id="dockApplyDamage" data-i18n="apply">Appliquer</button>
+      <button id="dockAttackNoTarget">Attaque sans cible</button>
+      <button id="dockRollDamage">Lancer les dégâts</button>
+      <input id="dockDamageTaken" type="number" min="0" placeholder="Dégâts subis">
+      <button id="dockApplyDamage">Appliquer</button>
     </div>
-    <div class="result dock-result" id="dockResult" data-i18n="chooseAction">Choisis une action.</div>
+    <div class="result dock-result" id="dockResult">Choisis une action.</div>
   </div>
 </div>
 
@@ -221,17 +222,17 @@
     </div>
     <div class="card-body">
       <div class="stats">
-        <label><span data-i18n="difficulty">Difficulté</span><input class="difficulty" type="number" min="0"></label>
-        <label><span data-i18n="majorThreshold">Seuil majeur</span><input class="major" type="number" min="0"></label>
-        <label><span data-i18n="severeThreshold">Seuil sévère</span><input class="severe" type="number" min="0"></label>
-        <label><span data-i18n="hpMax">HP max</span><input class="hpMax" type="number" min="0"></label>
-        <label><span data-i18n="stressMax">Stress max</span><input class="stressMax" type="number" min="0"></label>
+        <label>Difficulté<input class="difficulty" type="number" min="0"></label>
+        <label>Seuil majeur<input class="major" type="number" min="0"></label>
+        <label>Seuil sévère<input class="severe" type="number" min="0"></label>
+        <label>HP max<input class="hpMax" type="number" min="0"></label>
+        <label>Stress max<input class="stressMax" type="number" min="0"></label>
       </div>
       <div class="track"><button class="hpMinus">−</button><span class="hpDisplay"></span><button class="hpPlus">+</button></div>
       <div class="track"><button class="stressMinus">−</button><span class="stressDisplay"></span><button class="stressPlus">+</button></div>
 
       <div class="attack-grid">
-        <label><span data-i18n="attackModifier">Modificateur d’attaque</span><input class="attackMod" type="number"></label>
+        <label>Modificateur d’attaque<input class="attackMod" type="number"></label>
       </div>
 
       <div class="dice-builder">
@@ -248,7 +249,7 @@
       <div class="advantage"><button class="advMinus">−</button><strong class="advDisplay"></strong><button class="advPlus">+</button></div>
       <div class="action-row"><button class="rollAttack">Attaque sans cible</button><button class="rollDamage">Lancer les dégâts</button></div>
       <div class="result rollResult">Aucun jet.</div>
-      <div class="damage-input"><input class="damageTaken" type="number" min="0" placeholder="Dégâts subis" data-i18n-placeholder="incomingDamage"><button class="applyDamage">Appliquer</button></div>
+      <div class="damage-input"><input class="damageTaken" type="number" min="0" placeholder="Dégâts subis"><button class="applyDamage">Appliquer</button></div>
       <div class="result damageResult">Aucun dégât reçu.</div>
     </div>
 

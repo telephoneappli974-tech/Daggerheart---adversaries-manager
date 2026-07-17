@@ -692,3 +692,140 @@ main{max-width:1550px;margin:auto;padding:1rem}
 }
 
 @media(max-width:1200px){.grid{overflow-x:auto}.card.saved{min-width:1280px}}
+
+
+/* Mobile application layout */
+#installAppBtn{
+  background:#471f43;
+  border-color:#775979;
+  color:#fff;
+}
+#installAppBtn[disabled]{opacity:.72;cursor:default}
+
+@media(max-width:700px){
+  body{font-size:15px}
+  main{padding:.65rem}
+  .topbar{
+    position:relative;
+    grid-template-columns:1fr;
+    gap:.55rem;
+    padding:.6rem;
+  }
+  .fear-box{justify-self:stretch;justify-content:center}
+  .header-actions{justify-self:stretch;display:grid;grid-template-columns:auto 1fr;gap:.45rem}
+  .language-picker{justify-content:flex-start}
+  .rest-box{display:grid;grid-template-columns:1fr 1fr;width:100%}
+  .rest-box button{min-width:0;padding:.5rem .35rem}
+  .toolbar{display:grid;gap:.55rem;padding:.6rem}
+  .toolbar .right{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+  .toolbar .right:first-child button:last-child{grid-column:1/-1}
+  #installAppBtn{grid-column:1/-1}
+  .targets-panel{padding:.5rem}
+  .targets-toolbar{align-items:stretch}
+  .targets-list{display:grid;overflow:visible;width:100%;gap:.4rem}
+  .target-edit-row,.target-saved-row{width:100%;flex-wrap:wrap}
+  .target-edit-row input{flex:1;min-width:0;width:auto}
+  .target-edit-row .te{flex:0 0 74px}
+  #addTarget{width:100%;height:2.5rem}
+
+  .grid{overflow:visible!important;display:grid;gap:.55rem}
+  .card.saved{
+    min-width:0!important;
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr auto;
+    grid-template-areas:
+      "role actions"
+      "name name"
+      "difficulty thresholds"
+      "attack damage"
+      "hpstress hpstress"
+      "conditions conditions"
+      "rolltype rolltype";
+    gap:.5rem;
+    padding:.65rem;
+    align-items:center;
+  }
+  .card.saved .combatant-role{justify-self:start}
+  .card.saved .saved-actions{justify-self:end;align-self:start}
+  .card.saved .saved-name{
+    width:100%;max-width:none;min-width:0;
+    font-size:1.15rem;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+  .card.saved .saved-difficulty,
+  .card.saved .saved-thresholds,
+  .card.saved .saved-attack,
+  .card.saved .saved-damage,
+  .card.saved .saved-rolltype{
+    width:100%;max-width:none;
+    min-height:2.55rem;
+    padding:.42rem;
+    border:1px solid var(--stat-border);
+    background:var(--stat-bg);
+    border-radius:9px;
+    justify-content:space-between;
+  }
+  .card.saved .hp-stress{
+    width:100%;
+    grid-template-columns:1fr;
+    gap:.4rem;
+  }
+  .hp-stress>.inline-control{
+    grid-template-columns:minmax(45px,1fr) 2.3rem 2.5rem 2.3rem;
+    min-height:3rem;
+  }
+  .hp-stress .savedHpMinus,.hp-stress .savedHpPlus,
+  .hp-stress .savedStressMinus,.hp-stress .savedStressPlus,
+  .saved-rolltype button{
+    width:2.3rem;height:2.3rem;min-width:2.3rem;
+    font-size:1.05rem;
+  }
+  .conditions{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:.35rem;
+    overflow:visible!important;
+  }
+  .conditions .inline-label{grid-column:1/-1}
+  .condition{min-height:2.45rem;padding:.45rem .3rem;font-size:.76rem}
+  .saved-rolltype{justify-content:center!important}
+  .saved-rolltype .inline-value{flex:1;min-width:0}
+  .saved-actions button{width:2.45rem;height:2.45rem;font-size:1.05rem}
+
+  .card:not(.saved) .card-head{
+    grid-template-columns:1fr auto;
+    padding:.65rem;
+  }
+  .card:not(.saved) .card-head .name{grid-column:1/-1}
+  .card:not(.saved) .card-head button{min-width:0}
+  .card-body{padding:.65rem;gap:.7rem}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats label:first-child{grid-column:1/-1}
+  .attack-grid{grid-template-columns:1fr}
+  .dice-builder{justify-content:center}
+  .action-row{display:grid;grid-template-columns:1fr}
+  .action-row button{min-width:0}
+  .damage-input{grid-template-columns:1fr}
+
+  .combat-dock{max-height:70vh;overflow:auto}
+  body.dock-open{padding-bottom:0}
+  .dock-inner{padding:.65rem}
+  .dock-targets{display:grid;grid-template-columns:1fr}
+  .dock-targets button{min-width:0}
+  .dock-actions{grid-template-columns:1fr 1fr}
+  .dock-actions input{grid-column:1/-1}
+
+  .distance-tool{padding:.6rem}
+  .distance-tool-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}
+  #distanceZoomLabel{grid-column:1/-1;text-align:center}
+  .distance-map{height:62vh;min-height:420px}
+  .modal-overlay{padding:.35rem;align-items:end}
+  .modal-panel,.modal-panel.large,.rest-modal-panel{
+    width:100%;max-height:92vh;border-radius:14px 14px 0 0;
+  }
+  .library-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}
+  .library-actions button{min-width:0}
+}

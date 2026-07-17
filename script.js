@@ -18,6 +18,7 @@ function applyLanguage(){
   document.querySelectorAll("[data-i18n]").forEach(el=>el.textContent=t(el.dataset.i18n));
   document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>el.placeholder=t(el.dataset.i18nPlaceholder));
   document.title=t("appTitle");
+  if(typeof updateInstallButton==="function")updateInstallButton();
   if(typeof renderTargets==="function")renderTargets();
   if(typeof renderCards==="function")renderCards();
   if(typeof renderDatabase==="function")renderDatabase();
@@ -1387,6 +1388,64 @@ document.addEventListener("click", event => {
 });
 
 
+
+let deferredInstallPrompt=null;
+const installAppBtn=document.getElementById("installAppBtn");
+
+function isStandaloneMode(){
+  return window.matchMedia("(display-mode: standalone)").matches||window.navigator.standalone===true;
+}
+
+function updateInstallButton(){
+  if(!installAppBtn)return;
+  if(isStandaloneMode()){
+    installAppBtn.hidden=false;
+    installAppBtn.disabled=true;
+    installAppBtn.textContent=t("appInstalled");
+    return;
+  }
+  installAppBtn.disabled=false;
+  installAppBtn.textContent=t("installApp");
+  installAppBtn.hidden=false;
+}
+
+window.addEventListener("beforeinstallprompt",event=>{
+  event.preventDefault();
+  deferredInstallPrompt=event;
+  updateInstallButton();
+});
+
+window.addEventListener("appinstalled",()=>{
+  deferredInstallPrompt=null;
+  updateInstallButton();
+});
+
+if(installAppBtn){
+  installAppBtn.addEventListener("click",async()=>{
+    if(isStandaloneMode())return;
+    if(deferredInstallPrompt){
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt=null;
+      updateInstallButton();
+      return;
+    }
+    const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+    alert(isiOS?t("iosInstall"):t("installUnavailable"));
+  });
+}
+
 const languageSelect=document.getElementById("languageSelect");
 if(languageSelect){languageSelect.value=currentLanguage;languageSelect.addEventListener("change",event=>{const previous=currentLanguage;currentLanguage=event.target.value==="en"?"en":"fr";translateDefaultNames(previous,currentLanguage);localStorage.setItem("daggerheart-language",currentLanguage);applyLanguage();save();});}
 applyLanguage();renderDistanceMap();save();
+
+if("serviceWorker" in navigator){
+  window.addEventListener("load",async()=>{
+    try{
+      const registration=await navigator.serviceWorker.register("./service-worker.js",{updateViaCache:"none"});
+      await registration.update();
+    }catch(error){
+      console.error("Service worker registration failed",error);
+    }
+  });
+}
