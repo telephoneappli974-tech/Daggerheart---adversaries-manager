@@ -30,3 +30,20 @@ Les données sont sauvegardées automatiquement dans le stockage local du naviga
 - `index.html` : structure de l’application ;
 - `style.css` : apparence et mise en page ;
 - `script.js` : fonctionnement, sauvegarde, jets et carte.
+
+
+## Installation sur téléphone
+
+Une fois le projet publié avec GitHub Pages :
+
+### Android
+1. Ouvrir le lien GitHub Pages dans Chrome.
+2. Ouvrir le menu `⋮`.
+3. Choisir **Installer l'application**.
+
+### iPhone / iPad
+1. Ouvrir le lien GitHub Pages dans Safari.
+2. Utiliser le bouton de partage.
+3. Choisir **Sur l'écran d'accueil**.
+
+L'application peut fonctionner hors ligne après une première ouverture en ligne.

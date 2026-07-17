@@ -1,116 +1,4 @@
 "use strict";
-
-const TRANSLATIONS={
-  fr:{
-    appTitle:"Gestionnaire de combat — Daggerheart",language:"Langue",fear:"Fear",
-    shortRest:"Repos court +1d4",longRest:"Repos long",addAdversary:"+ Ajouter un adversaire",
-    addAlly:"+ Ajouter un allié",database:"Base de données",export:"Exporter",import:"Importer",
-    autosaveActive:"Sauvegarde automatique active",saved:"Sauvegardé",saveError:"Erreur de sauvegarde",
-    allies:"Alliés",alliesNote:"Même fiche qu’un adversaire. Un allié sélectionné peut attaquer un adversaire.",
-    adversaries:"Adversaires",distanceMap:"Carte des distances",
-    mapHelp:"Clique sur la carte pour l’activer. Molette : zoom. Déplace les points à la souris.",
-    lock:"Verrouiller",unlock:"Déverrouiller",center:"Centrer",measure:"Mesurer",ranges:"Portées",
-    rangesSelection:"Portées : sélection",reset:"Réinitialiser",meleeLegend:"Mêlée : 1,5 m",
-    veryCloseLegend:"Très proche : 3 m",closeLegend:"Proche : 9 m",farLegend:"Loin : 30 m",
-    mapEmpty:"Ajoute au moins un PJ, allié ou adversaire enregistré.",
-    ally:"Allié",adversary:"Adversaire",noAlly:"Aucun allié.",noAdversary:"Aucun adversaire.",
-    noPlayer:"Aucun PJ enregistré.",noEnemy:"Aucun adversaire enregistré.",
-    chooseAction:"Choisis une action.",attackNoTarget:"Attaque sans cible",rollDamage:"Lancer les dégâts",
-    apply:"Appliquer",damageTaken:"Dégâts subis",difficulty:"Difficulté",thresholds:"Seuils",
-    state:"État",hidden:"Caché",vulnerable:"Vulnérable",restrained:"Entravé",normalRoll:"Jet normal",
-    advantage:"Av. ×{n}",disadvantage:"Désav. ×{n}",attack:"Attaque",damage:"Dégâts",
-    retained:"retenu",modifier:"mod.",againstEvasion:"contre Évasion",againstDifficulty:"contre Difficulté",
-    success:"RÉUSSIE",failure:"ÉCHOUÉE",attackTarget:"Attaquer {name}",
-    chooseFirst:"Choisis un premier point",chooseSecond:"Choisis un second point",
-    clickPin:"Clique sur les points dont tu veux garder les portées.",
-    melee:"Mêlée",veryClose:"Très proche",close:"Proche",far:"Loin",outOfRange:"Hors portée",
-    newAlly:"Nouvel allié",newAdversary:"Nouvel adversaire",newPlayer:"Nouveau PJ",
-    edit:"Modifier",duplicate:"Dupliquer",delete:"Supprimer",save:"Enregistrer",
-    playerName:"Nom",evasion:"Évasion",cancel:"Annuler",confirm:"Confirmer",
-    longRestTitle:"Repos long",registeredPlayers:"PJ enregistrés et évasion :",playerCount:"Nombre de PJ",
-    enterInteger:"Entre un nombre entier de PJ.",shortRestLabel:"Repos court",longRestLabel:"Repos long",
-    roll:"Jet",fearBefore:"Fear avant",fearAdded:"Fear ajouté",fearAfter:"Fear après",
-    gainLimited:"Gain limité par le maximum de {max}",calculation:"Calcul",players:"PJ",
-    databaseTitle:"Base de données des adversaires",addEnemyTitle:"Ajouter un adversaire",
-    newEnemy:"+ Nouvel adversaire",searchDatabase:"Rechercher dans la base de données",
-    createInDatabase:"+ Créer dans la base",searchEnemy:"Rechercher un adversaire",
-    databaseNote:"Les modifications faites ici n’ajoutent rien à la page de jeu. Les adversaires déjà présents conservent leurs HP, leur stress et leurs états actuels.",
-    createEnemyDatabase:"Créer un adversaire dans la base",saveDatabase:"Enregistrer dans la base",
-    noDatabase:"La base de données est vide.",noSearchResult:"Aucun adversaire ne correspond à la recherche.",
-    add:"Ajouter",addToGame:"Ajouter au jeu",copySuffix:" — copie",
-    invalidFile:"Fichier invalide",invalidNumber:"Entre un nombre valide.",
-    noDamage:"Aucun dégât",minor:"Mineurs",major:"Majeurs",severe:"Sévères",
-    hpRemaining:"HP restants",markedHp:"HP marqué",markedHps:"HP marqués",
-    noRoll:"Aucun jet.",noDamageReceived:"Aucun dégât reçu."
-  },
-  en:{
-    appTitle:"Daggerheart Combat Manager",language:"Language",fear:"Fear",
-    shortRest:"Short Rest +1d4",longRest:"Long Rest",addAdversary:"+ Add Adversary",
-    addAlly:"+ Add Ally",database:"Database",export:"Export",import:"Import",
-    autosaveActive:"Autosave active",saved:"Saved",saveError:"Save error",
-    allies:"Allies",alliesNote:"Same sheet as an adversary. A selected ally can attack an adversary.",
-    adversaries:"Adversaries",distanceMap:"Distance Map",
-    mapHelp:"Click the map to activate it. Mouse wheel: zoom. Drag tokens with the mouse.",
-    lock:"Lock",unlock:"Unlock",center:"Center",measure:"Measure",ranges:"Ranges",
-    rangesSelection:"Ranges: select",reset:"Reset",meleeLegend:"Melee: 1.5 m",
-    veryCloseLegend:"Very Close: 3 m",closeLegend:"Close: 9 m",farLegend:"Far: 30 m",
-    mapEmpty:"Add at least one saved PC, ally, or adversary.",
-    ally:"Ally",adversary:"Adversary",noAlly:"No allies.",noAdversary:"No adversaries.",
-    noPlayer:"No saved PCs.",noEnemy:"No saved adversaries.",
-    chooseAction:"Choose an action.",attackNoTarget:"Attack without target",rollDamage:"Roll Damage",
-    apply:"Apply",damageTaken:"Incoming damage",difficulty:"Difficulty",thresholds:"Thresholds",
-    state:"Condition",hidden:"Hidden",vulnerable:"Vulnerable",restrained:"Restrained",normalRoll:"Normal roll",
-    advantage:"Adv. ×{n}",disadvantage:"Disadv. ×{n}",attack:"Attack",damage:"Damage",
-    retained:"kept",modifier:"mod.",againstEvasion:"against Evasion",againstDifficulty:"against Difficulty",
-    success:"SUCCESS",failure:"FAILURE",attackTarget:"Attack {name}",
-    chooseFirst:"Choose a first token",chooseSecond:"Choose a second token",
-    clickPin:"Click tokens whose ranges you want to keep visible.",
-    melee:"Melee",veryClose:"Very Close",close:"Close",far:"Far",outOfRange:"Out of range",
-    newAlly:"New Ally",newAdversary:"New Adversary",newPlayer:"New PC",
-    edit:"Edit",duplicate:"Duplicate",delete:"Delete",save:"Save",
-    playerName:"Name",evasion:"Evasion",cancel:"Cancel",confirm:"Confirm",
-    longRestTitle:"Long Rest",registeredPlayers:"Saved PCs and Evasion:",playerCount:"Number of PCs",
-    enterInteger:"Enter a whole number of PCs.",shortRestLabel:"Short Rest",longRestLabel:"Long Rest",
-    roll:"Roll",fearBefore:"Fear before",fearAdded:"Fear added",fearAfter:"Fear after",
-    gainLimited:"Gain limited by the maximum of {max}",calculation:"Calculation",players:"PCs",
-    databaseTitle:"Adversary Database",addEnemyTitle:"Add an Adversary",
-    newEnemy:"+ New Adversary",searchDatabase:"Search the database",
-    createInDatabase:"+ Create in database",searchEnemy:"Search an adversary",
-    databaseNote:"Changes made here do not add anything to the game page. Adversaries already in play keep their current HP, Stress, and conditions.",
-    createEnemyDatabase:"Create an adversary in the database",saveDatabase:"Save to database",
-    noDatabase:"The database is empty.",noSearchResult:"No adversary matches the search.",
-    add:"Add",addToGame:"Add to game",copySuffix:" — copy",
-    invalidFile:"Invalid file",invalidNumber:"Enter a valid number.",
-    noDamage:"No damage",minor:"Minor",major:"Major",severe:"Severe",
-    hpRemaining:"HP remaining",markedHp:"HP marked",markedHps:"HP marked",
-    noRoll:"No roll.",noDamageReceived:"No damage received."
-  }
-};
-let currentLanguage=localStorage.getItem("daggerheart-language")||"fr";
-function t(key,vars={}){
-  let text=TRANSLATIONS[currentLanguage]?.[key]??TRANSLATIONS.fr[key]??key;
-  Object.entries(vars).forEach(([name,value])=>{
-    text=text.replaceAll(`{${name}}`,String(value));
-  });
-  return text;
-}
-function applyLanguage(){
-  document.documentElement.lang=currentLanguage;
-  document.getElementById("languageSelect").value=currentLanguage;
-  document.querySelectorAll("[data-i18n]").forEach(element=>{
-    element.textContent=t(element.dataset.i18n);
-  });
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(element=>{
-    element.placeholder=t(element.dataset.i18nPlaceholder);
-  });
-  renderFear();
-  renderTargets();
-  renderCards();
-  renderDatabase();
-  renderAddAdversaryList();
-  renderDistanceMap();
-}
-
 const STORAGE_KEY="daggerheart-adversary-manager-v7",MAX_FEAR=12;
 let selectedId=null;
 let selectedType="adversary";
@@ -123,9 +11,9 @@ function signed(n){return n>=0?`+${n}`:String(n)}
 function esc(v){return String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
 function numberOr(value,fallback=0){const n=Number(value);return Number.isFinite(n)?n:fallback}
 
-function freshTarget(){return{id:id(),name:t("newPlayer"),evasion:10,saved:false}}
+function freshTarget(){return{id:id(),name:"Nouveau PJ",evasion:10,saved:false}}
 function defaultAdversaryValues(){return{
-  name:t("newAdversary"),difficulty:12,major:5,severe:10,hpMax:5,stressMax:3,
+  name:"Nouvel adversaire",difficulty:12,major:5,severe:10,hpMax:5,stressMax:3,
   attackMod:0,damageCount:1,damageSides:6,damageMod:1,advantage:0
 }}
 function freshAdversary(){return{
@@ -133,7 +21,7 @@ function freshAdversary(){return{
   conditions:{hidden:false,vulnerable:false,restrained:false},lastRoll:"",lastDamage:"",saved:false
 }}
 function freshAlly(){
-  return{...freshAdversary(),id:id(),name:t("newAlly"),libraryId:null}
+  return{...freshAdversary(),id:id(),name:"Nouvel allié",libraryId:null}
 }
 function normalizeLibraryRecord(record={}){
   const defaults=defaultAdversaryValues();
@@ -238,13 +126,13 @@ function save(){
     localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
     const status=document.getElementById("saveStatus");
     if(status){
-      status.textContent=t("saved");
+      status.textContent="Sauvegardé";
       clearTimeout(saveStatusTimer);
-      saveStatusTimer=setTimeout(()=>{status.textContent=t("autosaveActive")},1200);
+      saveStatusTimer=setTimeout(()=>{status.textContent="Sauvegarde automatique active"},1200);
     }
   }catch(error){
     const status=document.getElementById("saveStatus");
-    if(status)status.textContent=t("saveError");
+    if(status)status.textContent="Erreur de sauvegarde";
     console.error("Sauvegarde impossible",error);
   }
 }
@@ -290,7 +178,7 @@ function rollDamage(a){
 }
 function hpRemaining(a){return Math.max(0,a.hpMax-a.hpMarked)}
 function stressRemaining(a){return Math.max(0,a.stressMax-a.stressMarked)}
-function advText(a){return a.advantage>0?t("advantage",{n:a.advantage}):a.advantage<0?t("disadvantage",{n:Math.abs(a.advantage)}):t("normalRoll")}
+function advText(a){return a.advantage>0?`Av. ×${a.advantage}`:a.advantage<0?`Désav. ×${Math.abs(a.advantage)}`:"Jet normal"}
 
 function renderFear(){
   document.getElementById("fearValue").textContent=state.fear;
@@ -324,12 +212,6 @@ const libraryEditorForm=document.getElementById("libraryEditorForm");
 const libraryEditorTitle=document.getElementById("libraryEditorTitle");
 const closeLibraryEditorButton=document.getElementById("closeLibraryEditor");
 const cancelLibraryEditorButton=document.getElementById("cancelLibraryEditor");
-const languageSelect=document.getElementById("languageSelect");
-languageSelect.addEventListener("change",event=>{
-  currentLanguage=event.target.value;
-  localStorage.setItem("daggerheart-language",currentLanguage);
-  applyLanguage();
-});
 
 function showRestCalculation(lines){
   restFeedback.hidden=false;
@@ -679,7 +561,7 @@ function containerFor(type){
   return type==="ally"?allies:cards;
 }
 function labelFor(type){
-  return type==="ally"?t("ally"):t("adversary");
+  return type==="ally"?"Allié":"Adversaire";
 }
 
 function renderCombatantCollection(type){
@@ -695,7 +577,7 @@ function renderCombatantCollection(type){
 
   container.innerHTML="";
   if(!collection.length){
-    container.innerHTML=`<div class="result">${type==="ally"?t("noAlly"):t("noAdversary")}</div>`;
+    container.innerHTML=`<div class="result">Aucun ${type==="ally"?"allié":"adversaire"}.</div>`;
     return;
   }
 
@@ -709,7 +591,7 @@ function renderCombatantCollection(type){
     const role=card.querySelector(".combatant-role");
     role.textContent=labelFor(type);
 
-    card.querySelector(".name").placeholder=type==="ally"?t("newAlly"):t("newAdversary");
+    card.querySelector(".name").placeholder=type==="ally"?"Nom de l’allié":"Nom de l’adversaire";
 
     card.addEventListener("click",event=>{
       if(!a.saved)event.stopPropagation();
@@ -750,8 +632,8 @@ function renderCombatantCollection(type){
       hpDisplay.textContent=`HP ${hpRemaining(a)} / ${a.hpMax}`;
       stressDisplay.textContent=`Stress ${stressRemaining(a)} / ${a.stressMax}`;
       advDisplay.textContent=advText(a);
-      rollResult.innerHTML=a.lastRoll||t("noRoll");
-      damageResult.innerHTML=a.lastDamage||t("noDamageReceived");
+      rollResult.innerHTML=a.lastRoll||"Aucun jet.";
+      damageResult.innerHTML=a.lastDamage||"Aucun dégât reçu.";
       card.querySelector(".saved-name").textContent=a.name;
       card.querySelector(".difficultyQuick").value=a.difficulty;
       card.querySelector(".thresholdsValue").textContent=`${a.major} / ${a.severe}`;
@@ -917,15 +799,15 @@ function renderDock(){
   if(selectedType==="ally"){
     const targets=state.adversaries.filter(target=>target.saved);
     if(!targets.length){
-      dockTargets.innerHTML=`<span class="small-note">${t("noEnemy")}</span>`;
+      dockTargets.innerHTML='<span class="small-note">Aucun adversaire enregistré.</span>';
     }
     targets.forEach(target=>{
       const button=document.createElement("button");
-      button.textContent=t("attackTarget",{name:target.name});
+      button.textContent=`Attaquer ${target.name}`;
       button.onclick=()=>{
         const result=rollAttack(actor);
         const hit=result.total>=target.difficulty;
-        actor.lastRoll=`<b>${esc(actor.name)} ${t("attack").toLowerCase()} ${esc(target.name)}:</b> [${result.rolls.join(", ")}], ${t("retained")} ${result.kept}, ${t("modifier")} ${signed(actor.attackMod)} → <b>${result.total}</b> ${t("againstDifficulty")} <b>${target.difficulty}</b> — <b class="${hit?"success":"danger"}">${hit?t("success"):t("failure")}</b>.`;
+        actor.lastRoll=`<b>${esc(actor.name)} attaque ${esc(target.name)} :</b> [${result.rolls.join(", ")}], retenu ${result.kept}, mod. ${signed(actor.attackMod)} → <b>${result.total}</b> contre Difficulté <b>${target.difficulty}</b> — <b class="${hit?"success":"danger"}">${hit?"RÉUSSIE":"ÉCHOUÉE"}</b>.`;
         dockResult.innerHTML=actor.lastRoll;
         save();
       };
@@ -934,15 +816,15 @@ function renderDock(){
   }else{
     const targets=state.targets.filter(target=>target.saved);
     if(!targets.length){
-      dockTargets.innerHTML=`<span class="small-note">${t("noPlayer")}</span>`;
+      dockTargets.innerHTML='<span class="small-note">Aucun PJ enregistré.</span>';
     }
     targets.forEach(target=>{
       const button=document.createElement("button");
-      button.textContent=t("attackTarget",{name:target.name});
+      button.textContent=`Attaquer ${target.name}`;
       button.onclick=()=>{
         const result=rollAttack(actor);
         const hit=result.total>=target.evasion;
-        actor.lastRoll=`<b>${esc(actor.name)} ${t("attack").toLowerCase()} ${esc(target.name)}:</b> [${result.rolls.join(", ")}], ${t("retained")} ${result.kept}, ${t("modifier")} ${signed(actor.attackMod)} → <b>${result.total}</b> ${t("againstEvasion")} <b>${target.evasion}</b> — <b class="${hit?"success":"danger"}">${hit?t("success"):t("failure")}</b>.`;
+        actor.lastRoll=`<b>${esc(actor.name)} attaque ${esc(target.name)} :</b> [${result.rolls.join(", ")}], retenu ${result.kept}, mod. ${signed(actor.attackMod)} → <b>${result.total}</b> contre Évasion <b>${target.evasion}</b> — <b class="${hit?"success":"danger"}">${hit?"RÉUSSIE":"ÉCHOUÉE"}</b>.`;
         dockResult.innerHTML=actor.lastRoll;
         save();
       };
@@ -950,7 +832,7 @@ function renderDock(){
     });
   }
 
-  dockResult.innerHTML=actor.lastDamage||actor.lastRoll||t("chooseAction");
+  dockResult.innerHTML=actor.lastDamage||actor.lastRoll||"Choisis une action.";
 }
 dockAttackNoTarget.onclick=()=>{const a=selected();if(!a)return;const r=rollAttack(a);a.lastRoll=`<b>Attaque :</b> [${r.rolls.join(", ")}], retenu ${r.kept}, mod. ${signed(a.attackMod)} → <b>${r.total}</b>.`;dockResult.innerHTML=a.lastRoll;save()}
 dockRollDamage.onclick=()=>{const a=selected();if(!a)return;const r=rollDamage(a);a.lastRoll=`<b>Dégâts :</b> ${r.count}d${r.sides} [${r.rolls.join(", ")}] ${r.mod?signed(r.mod):""} → <b>${r.total}</b>.`;dockResult.innerHTML=a.lastRoll;save()}
@@ -1033,11 +915,11 @@ function updateRangeCircles(position){
 
 
 function rangeLabel(distance){
-  if(distance<=1.5)return t("melee");
-  if(distance<=3)return t("veryClose");
-  if(distance<=9)return t("close");
-  if(distance<=30)return t("far");
-  return t("outOfRange");
+  if(distance<=1.5)return"Mêlée";
+  if(distance<=3)return"Très proche";
+  if(distance<=9)return"Proche";
+  if(distance<=30)return"Loin";
+  return"Hors portée";
 }
 
 function centerMapOnSelected(){
@@ -1055,7 +937,7 @@ function handleMeasureClick(key){
   if(!measureMode)return false;
   if(!measureStartKey){
     measureStartKey=key;
-    distanceMeasureResult.textContent=t("chooseSecond");
+    distanceMeasureResult.textContent="Choisis un second point";
     renderDistanceMap();
     return true;
   }
@@ -1221,8 +1103,8 @@ function renderDistanceMap(){
   lockDistanceMapButton.classList.toggle("active",state.mapLocked);
   toggleRangesButton.classList.toggle("active",rangePinMode);
   measureDistanceButton.classList.toggle("active",measureMode);
-  lockDistanceMapButton.textContent=state.mapLocked?t("unlock"):t("lock");
-  toggleRangesButton.textContent=rangePinMode?t("rangesSelection"):t("ranges");
+  lockDistanceMapButton.textContent=state.mapLocked?"Déverrouiller":"Verrouiller";
+  toggleRangesButton.textContent=rangePinMode?"Portées : sélection":"Portées";
 
   const selectedPosition=state.selectedMapToken
     ? state.mapPositions[state.selectedMapToken]
@@ -1364,7 +1246,7 @@ centerDistanceMapButton.addEventListener("click",centerMapOnSelected);
 measureDistanceButton.addEventListener("click",()=>{
   measureMode=!measureMode;
   measureStartKey=null;
-  distanceMeasureResult.textContent=measureMode?t("chooseFirst"):"";
+  distanceMeasureResult.textContent=measureMode?"Choisis un premier point":"";
   renderDistanceMap();
 });
 
@@ -1373,7 +1255,7 @@ toggleRangesButton.addEventListener("click",()=>{
   if(rangePinMode){
     measureMode=false;
     measureStartKey=null;
-    distanceMeasureResult.textContent=t("clickPin");
+    distanceMeasureResult.textContent="Clique sur les points dont tu veux garder les portées.";
   }else{
     distanceMeasureResult.textContent="";
   }
@@ -1409,7 +1291,7 @@ importFile.onchange=async e=>{
     renderDatabase();
     save();
   }catch(_){
-    alert(t("invalidFile"));
+    alert("Fichier invalide");
   }finally{
     e.target.value="";
   }
@@ -1440,4 +1322,13 @@ document.addEventListener("click", event => {
   }
 });
 
-applyLanguage();save();
+renderFear();renderTargets();renderCards();renderDistanceMap();save();
+
+
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>{
+    navigator.serviceWorker.register("./service-worker.js").catch(error=>{
+      console.error("Service worker registration failed",error);
+    });
+  });
+}

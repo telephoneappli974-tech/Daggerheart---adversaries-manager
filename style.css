@@ -705,29 +705,3 @@ main{max-width:1550px;margin:auto;padding:1rem}
   .library-editor-grid{grid-template-columns:1fr}
   .library-editor-grid .wide{grid-column:auto}
 }
-
-.header-actions{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:.65rem;
-  flex-wrap:wrap;
-}
-.language-picker{
-  display:flex;
-  align-items:center;
-  gap:.35rem;
-  font-size:.72rem;
-  color:var(--muted);
-}
-.language-picker select{
-  border:1px solid var(--control-border);
-  background:var(--control-bg);
-  color:var(--text);
-  border-radius:8px;
-  padding:.42rem .55rem;
-}
-@media(max-width:700px){
-  .header-actions{justify-self:end}
-  .language-picker span{display:none}
-}
