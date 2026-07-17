@@ -1,4 +1,36 @@
 "use strict";
+const TRANSLATIONS={"fr": {"appTitle": "Gestionnaire de combat — Daggerheart", "language": "Langue", "fear": "Fear", "shortRest": "Repos court +1d4", "longRest": "Repos long", "addAdversary": "+ Ajouter un adversaire", "addAlly": "+ Ajouter un allié", "database": "Base de données", "export": "Exporter", "import": "Importer", "autosaveActive": "Sauvegarde automatique active", "saved": "Sauvegardé", "saveError": "Erreur de sauvegarde", "allies": "Alliés", "alliesNote": "Même fiche qu’un adversaire. Un allié sélectionné peut attaquer un adversaire.", "adversaries": "Adversaires", "distanceMap": "Carte des distances", "mapHelp": "Clique sur la carte pour l’activer. Molette : zoom. Déplace les points à la souris.", "lock": "Verrouiller", "unlock": "Déverrouiller", "center": "Centrer", "measure": "Mesurer", "ranges": "Portées", "rangesSelection": "Portées : sélection", "reset": "Réinitialiser", "meleeLegend": "Mêlée : 1,5 m", "veryCloseLegend": "Très proche : 3 m", "closeLegend": "Proche : 9 m", "farLegend": "Loin : 30 m", "mapEmpty": "Ajoute au moins un PJ, allié ou adversaire enregistré.", "ally": "Allié", "adversary": "Adversaire", "player": "PJ", "noAlly": "Aucun allié.", "noAdversary": "Aucun adversaire.", "noPlayer": "Aucun PJ enregistré.", "noEnemy": "Aucun adversaire enregistré.", "chooseAction": "Choisis une action.", "attackNoTarget": "Attaque sans cible", "rollDamage": "Lancer les dégâts", "apply": "Appliquer", "incomingDamage": "Dégâts subis", "difficulty": "Difficulté", "thresholds": "Seuils", "condition": "État", "hidden": "Caché", "vulnerable": "Vulnérable", "restrained": "Entravé", "normalRoll": "Jet normal", "advantage": "Av. ×{n}", "disadvantage": "Désav. ×{n}", "attack": "Attaque", "damage": "Dégâts", "retained": "retenu", "modifier": "mod.", "againstEvasion": "contre Évasion", "againstDifficulty": "contre Difficulté", "success": "RÉUSSIE", "failure": "ÉCHOUÉE", "attackTarget": "Attaquer {name}", "chooseFirst": "Choisis un premier point", "chooseSecond": "Choisis un second point", "clickPin": "Clique sur les points dont tu veux garder les portées.", "melee": "Mêlée", "veryClose": "Très proche", "close": "Proche", "far": "Loin", "outOfRange": "Hors portée", "newAlly": "Nouvel allié", "newAdversary": "Nouvel adversaire", "newPlayer": "Nouveau PJ", "edit": "Modifier", "duplicate": "Dupliquer", "delete": "Supprimer", "save": "Enregistrer", "name": "Nom", "evasion": "Évasion", "cancel": "Annuler", "confirm": "Confirmer", "longRestTitle": "Repos long", "registeredPlayers": "PJ enregistrés et évasion :", "playerCount": "Nombre de PJ", "enterInteger": "Entre un nombre entier de PJ.", "databaseTitle": "Base de données des adversaires", "addEnemyTitle": "Ajouter un adversaire", "newEnemy": "+ Nouvel adversaire", "searchDatabase": "Rechercher dans la base de données", "createInDatabase": "+ Créer dans la base", "searchEnemy": "Rechercher un adversaire", "databaseNote": "Les modifications faites ici n’ajoutent rien à la page de jeu. Les adversaires déjà présents conservent leurs HP, leur stress et leurs états actuels.", "databaseEnemy": "Adversaire de la base", "createEnemyDatabase": "Créer un adversaire dans la base", "saveDatabase": "Enregistrer dans la base", "noDatabase": "La base de données est vide.", "noSearchResult": "Aucun adversaire ne correspond à la recherche.", "add": "Ajouter", "addToGame": "Ajouter au jeu", "copySuffix": " — copie", "invalidFile": "Fichier invalide", "invalidNumber": "Entre un nombre valide.", "noRoll": "Aucun jet.", "noDamageReceived": "Aucun dégât reçu.", "attackModifier": "Modificateur d’attaque", "majorThreshold": "Seuil majeur", "severeThreshold": "Seuil sévère", "hpMax": "HP max", "stressMax": "Stress max", "damageDice": "Dés de dégâts", "advDisadv": "Avantage / désavantage", "diceCount": "Nombre de dés", "diceSides": "Faces des dés", "damageModifier": "Modificateur de dégâts", "editEnemy": "Modifier", "duplicateEnemy": "Dupliquer"}, "en": {"appTitle": "Daggerheart Combat Manager", "language": "Language", "fear": "Fear", "shortRest": "Short Rest +1d4", "longRest": "Long Rest", "addAdversary": "+ Add Adversary", "addAlly": "+ Add Ally", "database": "Database", "export": "Export", "import": "Import", "autosaveActive": "Autosave active", "saved": "Saved", "saveError": "Save error", "allies": "Allies", "alliesNote": "Same sheet as an adversary. A selected ally can attack an adversary.", "adversaries": "Adversaries", "distanceMap": "Distance Map", "mapHelp": "Click the map to activate it. Mouse wheel: zoom. Drag tokens with the mouse.", "lock": "Lock", "unlock": "Unlock", "center": "Center", "measure": "Measure", "ranges": "Ranges", "rangesSelection": "Ranges: select", "reset": "Reset", "meleeLegend": "Melee: 1.5 m", "veryCloseLegend": "Very Close: 3 m", "closeLegend": "Close: 9 m", "farLegend": "Far: 30 m", "mapEmpty": "Add at least one saved PC, ally, or adversary.", "ally": "Ally", "adversary": "Adversary", "player": "PC", "noAlly": "No allies.", "noAdversary": "No adversaries.", "noPlayer": "No saved PCs.", "noEnemy": "No saved adversaries.", "chooseAction": "Choose an action.", "attackNoTarget": "Attack without target", "rollDamage": "Roll Damage", "apply": "Apply", "incomingDamage": "Incoming Damage", "difficulty": "Difficulty", "thresholds": "Thresholds", "condition": "Condition", "hidden": "Hidden", "vulnerable": "Vulnerable", "restrained": "Restrained", "normalRoll": "Normal roll", "advantage": "Adv. ×{n}", "disadvantage": "Disadv. ×{n}", "attack": "Attack", "damage": "Damage", "retained": "kept", "modifier": "mod.", "againstEvasion": "against Evasion", "againstDifficulty": "against Difficulty", "success": "SUCCESS", "failure": "FAILURE", "attackTarget": "Attack {name}", "chooseFirst": "Choose a first token", "chooseSecond": "Choose a second token", "clickPin": "Click tokens whose ranges you want to keep visible.", "melee": "Melee", "veryClose": "Very Close", "close": "Close", "far": "Far", "outOfRange": "Out of range", "newAlly": "New Ally", "newAdversary": "New Adversary", "newPlayer": "New PC", "edit": "Edit", "duplicate": "Duplicate", "delete": "Delete", "save": "Save", "name": "Name", "evasion": "Evasion", "cancel": "Cancel", "confirm": "Confirm", "longRestTitle": "Long Rest", "registeredPlayers": "Saved PCs and Evasion:", "playerCount": "Number of PCs", "enterInteger": "Enter a whole number of PCs.", "databaseTitle": "Adversary Database", "addEnemyTitle": "Add an Adversary", "newEnemy": "+ New Adversary", "searchDatabase": "Search the database", "createInDatabase": "+ Create in database", "searchEnemy": "Search an adversary", "databaseNote": "Changes made here do not add anything to the game page. Adversaries already in play keep their current HP, Stress, and conditions.", "databaseEnemy": "Database Adversary", "createEnemyDatabase": "Create an adversary in the database", "saveDatabase": "Save to database", "noDatabase": "The database is empty.", "noSearchResult": "No adversary matches the search.", "add": "Add", "addToGame": "Add to game", "copySuffix": " — copy", "invalidFile": "Invalid file", "invalidNumber": "Enter a valid number.", "noRoll": "No roll.", "noDamageReceived": "No damage received.", "attackModifier": "Attack Modifier", "majorThreshold": "Major Threshold", "severeThreshold": "Severe Threshold", "hpMax": "Max HP", "stressMax": "Max Stress", "damageDice": "Damage Dice", "advDisadv": "Advantage / Disadvantage", "diceCount": "Number of Dice", "diceSides": "Die Sides", "damageModifier": "Damage Modifier", "editEnemy": "Edit", "duplicateEnemy": "Duplicate"}};
+let currentLanguage=localStorage.getItem("daggerheart-language")||"fr";
+function t(key,vars={}){
+  let text=TRANSLATIONS[currentLanguage]?.[key]??TRANSLATIONS.fr[key]??key;
+  Object.entries(vars).forEach(([name,value])=>text=text.replaceAll(`{${name}}`,String(value)));
+  return text;
+}
+function translateDefaultNames(previous,next){
+  const oldT=TRANSLATIONS[previous],newT=TRANSLATIONS[next];
+  state?.targets?.forEach(x=>{if(x.name===oldT.newPlayer)x.name=newT.newPlayer});
+  state?.adversaries?.forEach(x=>{if(x.name===oldT.newAdversary)x.name=newT.newAdversary});
+  state?.allies?.forEach(x=>{if(x.name===oldT.newAlly)x.name=newT.newAlly});
+}
+function applyLanguage(){
+  document.documentElement.lang=currentLanguage;
+  const select=document.getElementById("languageSelect"); if(select)select.value=currentLanguage;
+  document.querySelectorAll("[data-i18n]").forEach(el=>el.textContent=t(el.dataset.i18n));
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>el.placeholder=t(el.dataset.i18nPlaceholder));
+  document.title=t("appTitle");
+  if(typeof renderTargets==="function")renderTargets();
+  if(typeof renderCards==="function")renderCards();
+  if(typeof renderDatabase==="function")renderDatabase();
+  if(typeof renderAddAdversaryList==="function")renderAddAdversaryList();
+}
+function clearDefaultOnFocus(input,entity,type){
+  input.addEventListener("focus",()=>{
+    const keys=type==="player"?["newPlayer"]:type==="ally"?["newAlly"]:["newAdversary"];
+    const defaults=keys.flatMap(k=>[TRANSLATIONS.fr[k],TRANSLATIONS.en[k]]);
+    if(defaults.includes(String(entity.name||"").trim())){entity.name="";input.value="";save();}
+  },{once:true});
+}
+
 const STORAGE_KEY="daggerheart-adversary-manager-v7",MAX_FEAR=12;
 let selectedId=null;
 let selectedType="adversary";
@@ -11,9 +43,9 @@ function signed(n){return n>=0?`+${n}`:String(n)}
 function esc(v){return String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
 function numberOr(value,fallback=0){const n=Number(value);return Number.isFinite(n)?n:fallback}
 
-function freshTarget(){return{id:id(),name:"Nouveau PJ",evasion:10,saved:false}}
+function freshTarget(){return{id:id(),name:t("newPlayer"),evasion:10,saved:false}}
 function defaultAdversaryValues(){return{
-  name:"Nouvel adversaire",difficulty:12,major:5,severe:10,hpMax:5,stressMax:3,
+  name:t("newAdversary"),difficulty:12,major:5,severe:10,hpMax:5,stressMax:3,
   attackMod:0,damageCount:1,damageSides:6,damageMod:1,advantage:0
 }}
 function freshAdversary(){return{
@@ -21,7 +53,7 @@ function freshAdversary(){return{
   conditions:{hidden:false,vulnerable:false,restrained:false},lastRoll:"",lastDamage:"",saved:false
 }}
 function freshAlly(){
-  return{...freshAdversary(),id:id(),name:"Nouvel allié",libraryId:null}
+  return{...freshAdversary(),id:id(),name:t("newAlly"),libraryId:null}
 }
 function normalizeLibraryRecord(record={}){
   const defaults=defaultAdversaryValues();
@@ -78,7 +110,7 @@ function normalizeState(raw={}){
   const normalized={
     fear:clamp(numberOr(raw.fear,0),0,MAX_FEAR),
     targets:Array.isArray(raw.targets)?raw.targets.map(target=>({
-      id:target.id||id(),name:String(target.name||"Nouveau PJ"),evasion:numberOr(target.evasion,10),saved:target.saved!==false
+      id:target.id||id(),name:String(target.name||t("newPlayer")),evasion:numberOr(target.evasion,10),saved:target.saved!==false
     })):[],
     adversaries:Array.isArray(raw.adversaries)?raw.adversaries.map(normalizeCombatAdversary):[],
     allies:Array.isArray(raw.allies)?raw.allies.map(normalizeCombatAdversary):[],
@@ -126,13 +158,13 @@ function save(){
     localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
     const status=document.getElementById("saveStatus");
     if(status){
-      status.textContent="Sauvegardé";
+      status.textContent=t("saved");
       clearTimeout(saveStatusTimer);
-      saveStatusTimer=setTimeout(()=>{status.textContent="Sauvegarde automatique active"},1200);
+      saveStatusTimer=setTimeout(()=>{status.textContent=t("autosaveActive")},1200);
     }
   }catch(error){
     const status=document.getElementById("saveStatus");
-    if(status)status.textContent="Erreur de sauvegarde";
+    if(status)status.textContent=t("saveError");
     console.error("Sauvegarde impossible",error);
   }
 }
@@ -178,7 +210,7 @@ function rollDamage(a){
 }
 function hpRemaining(a){return Math.max(0,a.hpMax-a.hpMarked)}
 function stressRemaining(a){return Math.max(0,a.stressMax-a.stressMarked)}
-function advText(a){return a.advantage>0?`Av. ×${a.advantage}`:a.advantage<0?`Désav. ×${Math.abs(a.advantage)}`:"Jet normal"}
+function advText(a){return a.advantage>0?t("advantage",{n:a.advantage}):a.advantage<0?t("disadvantage",{n:Math.abs(a.advantage)}):t("normalRoll")}
 
 function renderFear(){
   document.getElementById("fearValue").textContent=state.fear;
@@ -344,21 +376,21 @@ function makeLibraryRow(record,mode){
 
   const addButton=document.createElement("button");
   addButton.type="button";
-  addButton.textContent=mode==="picker"?"Ajouter":"Ajouter au jeu";
+  addButton.textContent=mode==="picker"?t("add"):t("addToGame");
   addButton.onclick=()=>addLibraryAdversaryToGame(record.id);
   actions.appendChild(addButton);
 
   if(mode==="database"){
     const editButton=document.createElement("button");
     editButton.type="button";
-    editButton.textContent="Modifier";
+    editButton.textContent=t("edit");
     editButton.onclick=()=>openLibraryEditor(record.id);
 
     const duplicateButton=document.createElement("button");
     duplicateButton.type="button";
-    duplicateButton.textContent="Dupliquer";
+    duplicateButton.textContent=t("duplicate");
     duplicateButton.onclick=()=>{
-      const copy=normalizeLibraryRecord({...record,id:id(),name:`${record.name} — copie`,updatedAt:new Date().toISOString()});
+      const copy=normalizeLibraryRecord({...record,id:id(),name:`${record.name}${t("copySuffix")}`,updatedAt:new Date().toISOString()});
       state.library.push(copy);
       save();
       renderDatabase();
@@ -368,7 +400,7 @@ function makeLibraryRow(record,mode){
     const deleteButton=document.createElement("button");
     deleteButton.type="button";
     deleteButton.className="danger-btn";
-    deleteButton.textContent="Supprimer";
+    deleteButton.textContent=t("delete");
     deleteButton.onclick=()=>{
       if(!confirm(`Supprimer « ${record.name} » de la base de données ? Les exemplaires déjà ajoutés à la page de jeu resteront présents.`))return;
       state.library=state.library.filter(item=>item.id!==record.id);
@@ -388,7 +420,7 @@ function renderAddAdversaryList(){
   if(!records.length){
     const empty=document.createElement("div");
     empty.className="library-empty";
-    empty.textContent=state.library.length?"Aucun adversaire ne correspond à la recherche.":"La base de données est vide.";
+    empty.textContent=state.library.length?t("noSearchResult"):t("noDatabase");
     addAdversaryList.appendChild(empty);
     return;
   }
@@ -400,7 +432,7 @@ function renderDatabase(){
   if(!records.length){
     const empty=document.createElement("div");
     empty.className="library-empty";
-    empty.textContent=state.library.length?"Aucun adversaire ne correspond à la recherche.":"La base de données est vide. Crée un premier adversaire.";
+    empty.textContent=state.library.length?t("noSearchResult"):t("noDatabase");
     databaseList.appendChild(empty);
     return;
   }
@@ -438,13 +470,13 @@ function openLibraryEditor(recordId=null){
   editingLibraryId=recordId;
   const record=recordId?state.library.find(item=>item.id===recordId):normalizeLibraryRecord(defaultAdversaryValues());
   if(!record)return;
-  libraryEditorTitle.textContent=recordId?`Modifier — ${record.name}`:"Créer un adversaire dans la base";
+  libraryEditorTitle.textContent=recordId?`${t("edit")} — ${record.name}`:t("createEnemyDatabase");
   const elements=libraryEditorForm.elements;
   ["name","difficulty","major","severe","hpMax","stressMax","attackMod","damageCount","damageSides","damageMod","advantage"].forEach(key=>{
     elements[key].value=record[key];
   });
   openModal(libraryEditorModal);
-  requestAnimationFrame(()=>elements.name.focus());
+  requestAnimationFrame(()=>{if([TRANSLATIONS.fr.newAdversary,TRANSLATIONS.en.newAdversary].includes(elements.name.value.trim()))elements.name.value="";elements.name.focus();});
 }
 function closeLibraryEditor(){
   editingLibraryId=null;
@@ -512,30 +544,49 @@ addTarget.onclick=()=>{state.targets.push(freshTarget());renderTargets();save()}
 
 function renderTargets(){
   targetsList.innerHTML="";
-  state.targets.forEach(t=>{
+  state.targets.forEach(target=>{
     const row=document.createElement("div");
-    if(!t.saved){
+    if(!target.saved){
       row.className="target-edit-row";
-      row.innerHTML=`<input class="tn" placeholder="Nom"><span class="small-note">Évasion</span><input class="te" type="number" min="0"><button class="ts">Enregistrer</button><button class="td danger-btn">Supprimer</button>`;
-      row.querySelector(".tn").value=t.name;row.querySelector(".te").value=t.evasion;
-      row.querySelector(".tn").oninput=e=>{t.name=e.target.value;save()}
-      row.querySelector(".te").oninput=e=>{t.evasion=Number(e.target.value)||0;save()}
-      row.querySelector(".ts").onclick=()=>{t.saved=true;renderTargets();renderCards();save()}
-      row.querySelector(".td").onclick=()=>{state.targets=state.targets.filter(x=>x.id!==t.id);renderTargets();renderCards();save()}
+      row.innerHTML=`<input class="tn" placeholder="${t("name")}"><span class="small-note">${t("evasion")}</span><input class="te" type="number" min="0"><button class="ts">${t("save")}</button><button class="td danger-btn">${t("delete")}</button>`;
+      const nameInput=row.querySelector(".tn");
+      const evasionInput=row.querySelector(".te");
+      nameInput.value=target.name;
+      evasionInput.value=target.evasion;
+      clearDefaultOnFocus(nameInput,target,"player");
+      nameInput.oninput=event=>{target.name=event.target.value;save()};
+      evasionInput.oninput=event=>{target.evasion=Number(event.target.value)||0;save()};
+      row.querySelector(".ts").onclick=()=>{
+        target.saved=true;
+        renderTargets();
+        renderCards();
+        save();
+      };
+      row.querySelector(".td").onclick=()=>{
+        state.targets=state.targets.filter(item=>item.id!==target.id);
+        renderTargets();
+        renderCards();
+        save();
+      };
     }else{
       row.className="target-saved-row";
-      row.innerHTML=`<span class="target-name"></span><span class="target-evasion"></span><span class="target-saved-actions"><button class="tm icon-btn" title="Modifier">✎</button><button class="deleteTarget icon-btn danger-btn" title="Supprimer">🗑</button></span>`;
-      row.querySelector(".target-name").textContent=t.name;
-      row.querySelector(".target-evasion").textContent=`${t.evasion}`;
-      row.onclick=e=>{if(e.target.closest("button"))return;row.classList.toggle("open")}
-      row.querySelector(".tm").onclick=e=>{e.stopPropagation();t.saved=false;renderTargets();save()}
-      row.querySelector(".deleteTarget").onclick=e=>{e.stopPropagation();state.targets=state.targets.filter(x=>x.id!==t.id);renderTargets();renderCards();save()}
+      row.innerHTML=`<span class="target-name"></span><span class="target-evasion"></span><span class="target-saved-actions"><button class="tm icon-btn" title="${t("edit")}">✎</button><button class="deleteTarget icon-btn danger-btn" title="${t("delete")}">🗑</button></span>`;
+      row.querySelector(".target-name").textContent=target.name;
+      row.querySelector(".target-evasion").textContent=`${target.evasion}`;
+      row.onclick=event=>{if(event.target.closest("button"))return;row.classList.toggle("open")};
+      row.querySelector(".tm").onclick=event=>{event.stopPropagation();target.saved=false;renderTargets();save()};
+      row.querySelector(".deleteTarget").onclick=event=>{
+        event.stopPropagation();
+        state.targets=state.targets.filter(item=>item.id!==target.id);
+        renderTargets();
+        renderCards();
+        save();
+      };
     }
-    targetsList.appendChild(row)
-  })
+    targetsList.appendChild(row);
+  });
   renderDistanceMap();
 }
-
 function setRemaining(a,key,delta){
   if(key==="hp")a.hpMarked=clamp(a.hpMarked-delta,0,a.hpMax);
   else a.stressMarked=clamp(a.stressMarked-delta,0,a.stressMax);
@@ -561,7 +612,7 @@ function containerFor(type){
   return type==="ally"?allies:cards;
 }
 function labelFor(type){
-  return type==="ally"?"Allié":"Adversaire";
+  return type==="ally"?t("ally"):t("adversary");
 }
 
 function renderCombatantCollection(type){
@@ -577,7 +628,7 @@ function renderCombatantCollection(type){
 
   container.innerHTML="";
   if(!collection.length){
-    container.innerHTML=`<div class="result">Aucun ${type==="ally"?"allié":"adversaire"}.</div>`;
+    container.innerHTML=`<div class="result">${type==="ally"?t("noAlly"):t("noAdversary")}</div>`;
     return;
   }
 
@@ -590,8 +641,21 @@ function renderCombatantCollection(type){
 
     const role=card.querySelector(".combatant-role");
     role.textContent=labelFor(type);
+    card.querySelector(".saved-difficulty .inline-label").textContent=t("difficulty");
+    card.querySelector(".saved-thresholds .inline-label").textContent=t("thresholds");
+    card.querySelector(".conditions .inline-label").textContent=t("condition");
+    card.querySelector('[data-condition="hidden"]').textContent=t("hidden");
+    card.querySelector('[data-condition="vulnerable"]').textContent=t("vulnerable");
+    card.querySelector('[data-condition="restrained"]').textContent=t("restrained");
+    card.querySelector(".saveAdversary").textContent=t("save");
+    card.querySelector(".duplicate").textContent=t("duplicate");
+    card.querySelector(".remove").textContent=t("delete");
+    card.querySelector(".rollAttack").textContent=t("attackNoTarget");
+    card.querySelector(".rollDamage").textContent=t("rollDamage");
+    card.querySelector(".applyDamage").textContent=t("apply");
+    card.querySelector(".damageTaken").placeholder=t("incomingDamage");
 
-    card.querySelector(".name").placeholder=type==="ally"?"Nom de l’allié":"Nom de l’adversaire";
+    card.querySelector(".name").placeholder=type==="ally"?t("newAlly"):t("newAdversary");clearDefaultOnFocus(card.querySelector(".name"),a,type);
 
     card.addEventListener("click",event=>{
       if(!a.saved)event.stopPropagation();
@@ -632,8 +696,8 @@ function renderCombatantCollection(type){
       hpDisplay.textContent=`HP ${hpRemaining(a)} / ${a.hpMax}`;
       stressDisplay.textContent=`Stress ${stressRemaining(a)} / ${a.stressMax}`;
       advDisplay.textContent=advText(a);
-      rollResult.innerHTML=a.lastRoll||"Aucun jet.";
-      damageResult.innerHTML=a.lastDamage||"Aucun dégât reçu.";
+      rollResult.innerHTML=a.lastRoll||t("noRoll");
+      damageResult.innerHTML=a.lastDamage||t("noDamageReceived");
       card.querySelector(".saved-name").textContent=a.name;
       card.querySelector(".difficultyQuick").value=a.difficulty;
       card.querySelector(".thresholdsValue").textContent=`${a.major} / ${a.severe}`;
@@ -709,7 +773,7 @@ function renderCombatantCollection(type){
       const copy=structuredClone(a);
       copy.id=id();
       copy.libraryId=null;
-      copy.name+=" — copie";
+      copy.name+=t("copySuffix");
       if(copy.saved&&type==="adversary")saveAdversaryToLibrary(copy);
       collection.push(copy);
       renderCards();
@@ -799,11 +863,11 @@ function renderDock(){
   if(selectedType==="ally"){
     const targets=state.adversaries.filter(target=>target.saved);
     if(!targets.length){
-      dockTargets.innerHTML='<span class="small-note">Aucun adversaire enregistré.</span>';
+      dockTargets.innerHTML=`<span class="small-note">${t("noEnemy")}</span>`;
     }
     targets.forEach(target=>{
       const button=document.createElement("button");
-      button.textContent=`Attaquer ${target.name}`;
+      button.textContent=t("attackTarget",{name:target.name});
       button.onclick=()=>{
         const result=rollAttack(actor);
         const hit=result.total>=target.difficulty;
@@ -816,11 +880,11 @@ function renderDock(){
   }else{
     const targets=state.targets.filter(target=>target.saved);
     if(!targets.length){
-      dockTargets.innerHTML='<span class="small-note">Aucun PJ enregistré.</span>';
+      dockTargets.innerHTML=`<span class="small-note">${t("noPlayer")}</span>`;
     }
     targets.forEach(target=>{
       const button=document.createElement("button");
-      button.textContent=`Attaquer ${target.name}`;
+      button.textContent=t("attackTarget",{name:target.name});
       button.onclick=()=>{
         const result=rollAttack(actor);
         const hit=result.total>=target.evasion;
@@ -832,7 +896,7 @@ function renderDock(){
     });
   }
 
-  dockResult.innerHTML=actor.lastDamage||actor.lastRoll||"Choisis une action.";
+  dockResult.innerHTML=actor.lastDamage||actor.lastRoll||t("chooseAction");
 }
 dockAttackNoTarget.onclick=()=>{const a=selected();if(!a)return;const r=rollAttack(a);a.lastRoll=`<b>Attaque :</b> [${r.rolls.join(", ")}], retenu ${r.kept}, mod. ${signed(a.attackMod)} → <b>${r.total}</b>.`;dockResult.innerHTML=a.lastRoll;save()}
 dockRollDamage.onclick=()=>{const a=selected();if(!a)return;const r=rollDamage(a);a.lastRoll=`<b>Dégâts :</b> ${r.count}d${r.sides} [${r.rolls.join(", ")}] ${r.mod?signed(r.mod):""} → <b>${r.total}</b>.`;dockResult.innerHTML=a.lastRoll;save()}
@@ -915,11 +979,11 @@ function updateRangeCircles(position){
 
 
 function rangeLabel(distance){
-  if(distance<=1.5)return"Mêlée";
-  if(distance<=3)return"Très proche";
-  if(distance<=9)return"Proche";
-  if(distance<=30)return"Loin";
-  return"Hors portée";
+  if(distance<=1.5)return t("melee");
+  if(distance<=3)return t("veryClose");
+  if(distance<=9)return t("close");
+  if(distance<=30)return t("far");
+  return t("outOfRange");
 }
 
 function centerMapOnSelected(){
@@ -937,7 +1001,7 @@ function handleMeasureClick(key){
   if(!measureMode)return false;
   if(!measureStartKey){
     measureStartKey=key;
-    distanceMeasureResult.textContent="Choisis un second point";
+    distanceMeasureResult.textContent=t("chooseSecond");
     renderDistanceMap();
     return true;
   }
@@ -1103,8 +1167,8 @@ function renderDistanceMap(){
   lockDistanceMapButton.classList.toggle("active",state.mapLocked);
   toggleRangesButton.classList.toggle("active",rangePinMode);
   measureDistanceButton.classList.toggle("active",measureMode);
-  lockDistanceMapButton.textContent=state.mapLocked?"Déverrouiller":"Verrouiller";
-  toggleRangesButton.textContent=rangePinMode?"Portées : sélection":"Portées";
+  lockDistanceMapButton.textContent=state.mapLocked?t("unlock"):t("lock");
+  toggleRangesButton.textContent=rangePinMode?t("rangesSelection"):t("ranges");
 
   const selectedPosition=state.selectedMapToken
     ? state.mapPositions[state.selectedMapToken]
@@ -1246,7 +1310,7 @@ centerDistanceMapButton.addEventListener("click",centerMapOnSelected);
 measureDistanceButton.addEventListener("click",()=>{
   measureMode=!measureMode;
   measureStartKey=null;
-  distanceMeasureResult.textContent=measureMode?"Choisis un premier point":"";
+  distanceMeasureResult.textContent=measureMode?t("chooseFirst"):"";
   renderDistanceMap();
 });
 
@@ -1255,7 +1319,7 @@ toggleRangesButton.addEventListener("click",()=>{
   if(rangePinMode){
     measureMode=false;
     measureStartKey=null;
-    distanceMeasureResult.textContent="Clique sur les points dont tu veux garder les portées.";
+    distanceMeasureResult.textContent=t("clickPin");
   }else{
     distanceMeasureResult.textContent="";
   }
@@ -1291,7 +1355,7 @@ importFile.onchange=async e=>{
     renderDatabase();
     save();
   }catch(_){
-    alert("Fichier invalide");
+    alert(t("invalidFile"));
   }finally{
     e.target.value="";
   }
@@ -1322,13 +1386,7 @@ document.addEventListener("click", event => {
   }
 });
 
-renderFear();renderTargets();renderCards();renderDistanceMap();save();
 
-
-if("serviceWorker" in navigator){
-  window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("./service-worker.js").catch(error=>{
-      console.error("Service worker registration failed",error);
-    });
-  });
-}
+const languageSelect=document.getElementById("languageSelect");
+if(languageSelect){languageSelect.value=currentLanguage;languageSelect.addEventListener("change",event=>{const previous=currentLanguage;currentLanguage=event.target.value==="en"?"en":"fr";translateDefaultNames(previous,currentLanguage);localStorage.setItem("daggerheart-language",currentLanguage);applyLanguage();save();});}
+applyLanguage();renderDistanceMap();save();

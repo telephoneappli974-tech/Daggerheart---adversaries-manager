@@ -1,4 +1,4 @@
-const CACHE_NAME="daggerheart-manager-v1";
+const CACHE_NAME="daggerheart-manager-v3";
 const APP_FILES=[
   "./",
   "./index.html",

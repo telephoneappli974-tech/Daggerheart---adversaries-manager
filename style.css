@@ -122,7 +122,7 @@ main{max-width:1550px;margin:auto;padding:1rem}
   align-items:center;
   width:100%;
   min-width:0;
-  padding:.55rem 5.2rem .55rem .7rem;
+  padding:.55rem .7rem;
   cursor:pointer;
 }
 .card.saved.selected{background:#471f43;border-color:#775979;color:#f1f3f5;box-shadow:0 8px 24px rgba(0,0,0,.34)}
@@ -236,14 +236,7 @@ main{max-width:1550px;margin:auto;padding:1rem}
   border-radius:6px;
 }
 
-.saved-actions{
-  position:absolute;
-  right:.4rem;
-  bottom:.35rem;
-  display:flex;
-  gap:.25rem;
-  z-index:4;
-}
+.saved-actions{display:flex;align-items:center;justify-content:flex-end;gap:.25rem;min-width:max-content}
 .saved-actions button{
   width:2rem;
   height:2rem;
@@ -311,19 +304,11 @@ main{max-width:1550px;margin:auto;padding:1rem}
   white-space:nowrap;
 }
 .card.saved{
-  grid-template-columns:
-    max-content
-    max-content
-    max-content
-    max-content
-    max-content
-    max-content
-    max-content
-    max-content
-    max-content;
-  grid-template-areas:"role name difficulty thresholds attack damage hpstress conditions rolltype";
+  grid-template-columns:max-content minmax(90px,190px) max-content max-content max-content max-content max-content max-content max-content max-content;
+  grid-template-areas:"role name difficulty thresholds attack damage hpstress conditions rolltype actions";
 }
 .card.saved .combatant-role{grid-area:role}
+.card.saved .saved-actions{grid-area:actions}
 #addAlly{
   background:var(--control-bg);
   border-color:var(--control-border);
@@ -705,3 +690,5 @@ main{max-width:1550px;margin:auto;padding:1rem}
   .library-editor-grid{grid-template-columns:1fr}
   .library-editor-grid .wide{grid-column:auto}
 }
+
+@media(max-width:1200px){.grid{overflow-x:auto}.card.saved{min-width:1280px}}
